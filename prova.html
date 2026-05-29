@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textura - Pitch Deck 16:9</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#4c6450", /* Verde Foresta */
+                        "primary": "#9d3d1c", /* Terracotta */
+                        "tertiary": "#7f5200", /* Ocra */
+                        "surface": "#fcf9f3", /* Crema */
+                        "surface-bright": "#ffffff",
+                        "surface-container": "#ebe8e2",
+                        "on-surface": "#1c1c18",
+                        "on-surface-variant": "#56423c",
+                        "secondary-container": "#ceead0",
+                    },
+                    fontFamily: {
+                        "headline": ["Playfair Display", "serif"],
+                        "body": ["Hanken Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #333; /* Sfondo scuro fuori dalle slide per vederle bene a schermo */
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+        
+        /* Setup Slide 16:9 */
+        .slide-deck {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        .slide {
+            width: 1280px; /* Risoluzione standard 16:9 HD */
+            height: 720px;
+            background-color: #fcf9f3;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 3rem 4rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+        
+        /* Stile Ombre (Hard Shadows) */
+        .hard-shadow { box-shadow: 6px 6px 0px 0px #4c6450; }
+        .hard-shadow-primary { box-shadow: 6px 6px 0px 0px #9d3d1c; }
+        
+        /* Impostazioni per la stampa PDF perfetta */
+        @page { size: 1280px 720px; margin: 0; }
+        @media print {
+            body { background-color: white; }
+            .slide-deck { gap: 0; padding: 0; display: block; }
+            .slide { 
+                box-shadow: none; 
+                page-break-after: always;
+                page-break-inside: avoid;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-deck">
+
+    <!-- SLIDE 1: COPERTINA -->
+    <div class="slide justify-center">
+        <div class="grid grid-cols-12 gap-8 h-full items-center">
+            <div class="col-span-7 pr-8">
+                <span class="inline-block bg-primary text-white text-sm font-bold uppercase tracking-widest px-3 py-1 mb-6 -rotate-2 border border-secondary">Business Plan</span>
+                <h1 class="font-headline text-8xl font-bold text-primary leading-none mb-4">Textura</h1>
+                <h2 class="font-headline text-4xl text-on-surface mb-12 italic">Concept Store & Laboratorio Artigianale</h2>
+                
+                <div class="bg-surface-bright border border-secondary p-6 hard-shadow mt-8">
+                    <h3 class="font-headline text-2xl text-secondary mb-4 border-b border-secondary/20 pb-2">Team di Sviluppo</h3>
+                    <ul class="space-y-3">
+                        <li><strong>Mario D’Angelo</strong> — <span class="text-on-surface-variant">Direzione Generale & Sviluppo Business</span></li>
+                        <li><strong>Francesco Calone</strong> — <span class="text-on-surface-variant">Direzione Artistica & Coordinamento</span></li>
+                        <li><strong>Emanuele Ciotola</strong> — <span class="text-on-surface-variant">Brand Identity & Digital Strategy</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-span-5 h-full py-8">
+                <div class="w-full h-full bg-surface-container border border-secondary hard-shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale-[20%] sepia-[10%]" alt="Ceramica">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: FILOSOFIA E IDEA -->
+    <div class="slide">
+        <header class="mb-8">
+            <h2 class="font-headline text-5xl text-primary">La Filosofia del Brand</h2>
+            <div class="w-24 h-1 bg-secondary mt-4"></div>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-8 flex-1">
+            <div class="col-span-5 flex flex-col justify-center">
+                <div class="bg-secondary-container/30 border border-secondary p-8 hard-shadow relative">
+                    <span class="material-symbols-outlined absolute top-4 right-4 text-secondary/20 text-6xl">eco</span>
+                    <h3 class="font-headline text-3xl text-secondary mb-4">L'Essenza</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Un rifugio urbano dove riscoprire il valore del tempo, toccare con mano l'autenticità della materia e vivere un'esperienza sensoriale intensa. 
+                        Un invito esplicito a lasciarsi coinvolgere dall'energia della creatività manuale e celebrare la socialità consapevole.
+                    </p>
+                </div>
+            </div>
+            <div class="col-span-7 flex flex-col justify-center">
+                <h3 class="font-headline text-3xl text-on-surface mb-6">L’Idea Imprenditoriale</h3>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-surface-bright border border-secondary p-5">
+                        <span class="material-symbols-outlined text-primary mb-2 text-3xl">storefront</span>
+                        <h4 class="font-bold text-lg mb-1">Retail Esperienziale</h4>
+                        <p class="text-sm text-on-surface-variant">Arredamento, oggettistica e complementi d'arredo unici o realizzati a mano da designer indipendenti.</p>
+                    </div>
+                    <div class="bg-surface-bright border border-secondary p-5">
+                        <span class="material-symbols-outlined text-secondary mb-2 text-3xl">palette</span>
+                        <h4 class="font-bold text-lg mb-1">Workshop Creativi</h4>
+                        <p class="text-sm text-on-surface-variant">Corsi manuali nel fine settimana (ceramica, botanica, legatoria, upcycling) ad alto margine.</p>
+                    </div>
+                    <div class="bg-surface-bright border border-secondary p-5">
+                        <span class="material-symbols-outlined text-tertiary mb-2 text-3xl">local_cafe</span>
+                        <h4 class="font-bold text-lg mb-1">Hospitality Corner</h4>
+                        <p class="text-sm text-on-surface-variant">Specialty Coffee & Tea con infusi biologici per coccolare gli ospiti durante gli acquisti e i corsi.</p>
+                    </div>
+                    <div class="bg-surface-bright border border-secondary p-5">
+                        <span class="material-symbols-outlined text-primary mb-2 text-3xl">sentiment_satisfied</span>
+                        <h4 class="font-bold text-lg mb-1">Ambiente Inclusivo</h4>
+                        <p class="text-sm text-on-surface-variant">Spazi luminosi e sicuri strutturati per garantire connessione positiva e coinvolgimento emotivo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: OBIETTIVI STRATEGICI -->
+    <div class="slide">
+        <header class="mb-10 flex justify-between items-end">
+            <div>
+                <h2 class="font-headline text-5xl text-primary">Obiettivi Strategici</h2>
+                <div class="w-24 h-1 bg-secondary mt-4"></div>
+            </div>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-8 flex-1">
+            <div class="col-span-8 flex flex-col gap-6">
+                <div class="bg-surface-bright border border-secondary p-8 hard-shadow flex gap-6 items-start">
+                    <span class="material-symbols-outlined text-primary text-5xl">workspace_premium</span>
+                    <div>
+                        <h3 class="font-headline text-3xl text-on-surface mb-2">1. Costruire un brand riconoscibile</h3>
+                        <ul class="text-on-surface-variant space-y-2">
+                            <li>• Posizionare Textura come punto di riferimento cittadino per qualità e artigianalità.</li>
+                            <li>• Strategie di marketing digitale (social media, influencer interior design e lifestyle).</li>
+                            <li>• Collaborazioni organiche con artigiani resident/guest e partner strategici.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container border border-secondary p-8 hard-shadow-primary flex gap-6 items-start mt-4">
+                    <span class="material-symbols-outlined text-secondary text-5xl">trending_up</span>
+                    <div>
+                        <h3 class="font-headline text-3xl text-secondary mb-2">2. Generare profitti sostenibili</h3>
+                        <ul class="text-on-surface-variant space-y-2">
+                            <li>• Ottimizzare i costi operativi (gestione materie prime, fornitori locali, automazione).</li>
+                            <li>• Espandere i guadagni tramite merchandise a tema (kit fai-da-te, grembiuli).</li>
+                            <li>• Pacchetti esclusivi per eventi privati o aziendali B2B.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-4 h-full">
+                <div class="w-full h-full bg-surface border border-secondary hard-shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Workshop">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: FORMA GIURIDICA & ASA -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Settore & Forma Giuridica</h2>
+            <div class="w-24 h-1 bg-secondary mt-4"></div>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-10 flex-1">
+            <div class="col-span-6 bg-surface-bright border border-secondary p-8 hard-shadow">
+                <span class="text-sm font-bold uppercase tracking-widest text-secondary mb-2 block">Struttura Societaria</span>
+                <h3 class="font-headline text-6xl text-primary mb-6">S.r.l.</h3>
+                
+                <div class="space-y-6 mt-8">
+                    <div>
+                        <h4 class="font-bold text-xl flex items-center gap-2"><span class="material-symbols-outlined text-secondary">handshake</span> Attrazione Investitori</h4>
+                        <p class="text-on-surface-variant mt-1">Facilita l'ingresso di nuovi soci di capitale per finanziare espansione ed eventi straordinari.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl flex items-center gap-2"><span class="material-symbols-outlined text-secondary">shield_locked</span> Rischio Limitato</h4>
+                        <p class="text-on-surface-variant mt-1">Responsabilità dei soci limitata al capitale sociale, tutelando il patrimonio individuale.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl flex items-center gap-2"><span class="material-symbols-outlined text-secondary">tune</span> Gestione Flessibile</h4>
+                        <p class="text-on-surface-variant mt-1">Governance agile e personalizzabile per rispondere con tempestività ai trend di mercato.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-span-6 flex flex-col gap-6 justify-center">
+                <div class="bg-secondary-container/20 border border-secondary p-8 hard-shadow">
+                    <h3 class="font-headline text-3xl text-secondary mb-6 border-b border-secondary/20 pb-4">Area Strategica di Affari (ASA)</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <strong class="text-lg">Gruppi di Clienti:</strong><br>
+                            <span class="text-on-surface-variant">Adulti urbani orientati alla sostenibilità, amanti del pezzo unico, professionisti in cerca di decompressione diurna.</span>
+                        </li>
+                        <li>
+                            <strong class="text-lg">Funzioni Svolte:</strong><br>
+                            <span class="text-on-surface-variant">Apprendimento creativo, acquisto consapevole di arredo etico, socializzazione di qualità e break rilassanti.</span>
+                        </li>
+                        <li>
+                            <strong class="text-lg">Tecnologie & Risorse:</strong><br>
+                            <span class="text-on-surface-variant">Forni ad alta efficienza, macchine specialty, piattaforma digitale per booking ed e-commerce integrato.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: IL TEAM -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Il Gruppo Imprenditoriale</h2>
+            <p class="text-xl text-on-surface-variant mt-4">Un team operativo altamente qualificato per garantire un'esperienza unica e formativa.</p>
+        </header>
+        
+        <div class="grid grid-cols-3 gap-6 flex-1 items-center">
+            <div class="bg-surface-bright border border-secondary p-6 hard-shadow h-full flex flex-col">
+                <span class="material-symbols-outlined text-primary text-4xl mb-4">store_mall_directory</span>
+                <h3 class="font-bold text-xl text-on-surface mb-2">Store & Workshop Manager</h3>
+                <p class="text-on-surface-variant">Professionisti con consolidata esperienza nella gestione retail e organizzazione eventi, responsabili di logistica e customer care.</p>
+            </div>
+            
+            <div class="bg-surface-bright border border-secondary p-6 hard-shadow h-full flex flex-col">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-4">brush</span>
+                <h3 class="font-bold text-xl text-on-surface mb-2">Artigiani Resident & Guest</h3>
+                <p class="text-on-surface-variant">Maestri d'arte (ceramisti, legatori, botanici) incaricati di guidare i workshop manuali e produrre le collezioni retail.</p>
+            </div>
+            
+            <div class="bg-surface-bright border border-secondary p-6 hard-shadow h-full flex flex-col">
+                <span class="material-symbols-outlined text-tertiary text-4xl mb-4">coffee_maker</span>
+                <h3 class="font-bold text-xl text-on-surface mb-2">Baristi Specialty</h3>
+                <p class="text-on-surface-variant">Esperti di caffetteria e infusi dedicati alla preparazione di bevande biologiche e all'ospitalità premium.</p>
+            </div>
+            
+            <div class="bg-surface-bright border border-secondary p-6 hard-shadow h-full flex flex-col">
+                <span class="material-symbols-outlined text-primary text-4xl mb-4">support_agent</span>
+                <h3 class="font-bold text-xl text-on-surface mb-2">Customer Care & Accoglienza</h3>
+                <p class="text-on-surface-variant">Personale formato per assistere nel percorso d'acquisto e garantire un'atmosfera rilassata e altamente personalizzata.</p>
+            </div>
+            
+            <div class="bg-surface-bright border border-secondary p-6 hard-shadow h-full flex flex-col">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-4">construction</span>
+                <h3 class="font-bold text-xl text-on-surface mb-2">Staff Operativo & Lab</h3>
+                <p class="text-on-surface-variant">Responsabili del mantenimento dei banchi di lavoro, della gestione dei forni di cottura e dell'ordine del locale.</p>
+            </div>
+            
+            <div class="bg-surface-bright border border-secondary p-6 hard-shadow h-full flex flex-col">
+                <span class="material-symbols-outlined text-tertiary text-4xl mb-4">local_shipping</span>
+                <h3 class="font-bold text-xl text-on-surface mb-2">Logistica Green</h3>
+                <p class="text-on-surface-variant">Personale dedicato all'imballaggio sostenibile e alla consegna a domicilio a impatto zero per arredi ingombranti.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: MERCATO E CLIENTI -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Mercato: Clienti & Fornitori</h2>
+            <div class="w-24 h-1 bg-secondary mt-4"></div>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-10 flex-1">
+            <div class="col-span-7 flex flex-col gap-6">
+                <div class="bg-surface-bright border border-secondary p-8 hard-shadow">
+                    <h3 class="font-headline text-3xl text-secondary mb-6 flex items-center gap-3"><span class="material-symbols-outlined">group</span> Target Clienti</h3>
+                    <ul class="space-y-5">
+                        <li>
+                            <strong class="text-xl">Target Principale (Core):</strong><br>
+                            <span class="text-on-surface-variant">Giovani adulti, professionisti e appassionati di design (25-45 anni), amanti delle esperienze offline e dello stile "slow living".</span>
+                        </li>
+                        <li>
+                            <strong class="text-xl">Community & Co-workers:</strong><br>
+                            <span class="text-on-surface-variant">Gruppi di amici o singoli alla ricerca di un'alternativa stimolante ai tradizionali bar diurni.</span>
+                        </li>
+                        <li>
+                            <strong class="text-xl">Target Secondario (Family):</strong><br>
+                            <span class="text-on-surface-variant">Famiglie sensibili alla sostenibilità, grazie a moduli "Family Lab" dedicati.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-span-5 flex flex-col gap-6">
+                <div class="w-full h-48 bg-surface border border-secondary hard-shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1572293007244-8b603ea52fb5?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Coffee and craft">
+                </div>
+                <div class="bg-surface-container border border-secondary p-6 hard-shadow-primary flex-1">
+                    <h3 class="font-headline text-2xl text-primary mb-4 flex items-center gap-3"><span class="material-symbols-outlined">handshake</span> Fornitori Chiave</h3>
+                    <ul class="space-y-3 text-sm text-on-surface-variant">
+                        <li><strong>Artigiani/Designer Locali:</strong> Per un catalogo retail esclusivo.</li>
+                        <li><strong>Attrezzature Lab:</strong> Forni professionali ad alta efficienza.</li>
+                        <li><strong>Torrefazioni Specialty & Bio:</strong> Materie prime tracciabili.</li>
+                        <li><strong>Logistica Green:</strong> Trasporto elettrico per consegne.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: ESPERIENZIALITÀ -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Esperienzialità & Workshop</h2>
+            <p class="text-xl text-on-surface-variant mt-4">Un'innovazione strategica che risponde alla domanda di esperienze manuali e de-stressanti.</p>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-8 flex-1">
+            <div class="col-span-4 bg-surface-bright border border-secondary p-6 hard-shadow">
+                <span class="material-symbols-outlined text-primary text-4xl mb-4">settings_accessibility</span>
+                <h3 class="font-headline text-2xl text-on-surface mb-4">Formule Flessibili</h3>
+                <ul class="space-y-4">
+                    <li>
+                        <strong>Pacchetti All-Inclusive:</strong>
+                        <p class="text-sm text-on-surface-variant">Per esperienze intensive (materiali, cotture e degustazione specialty incluse).</p>
+                    </li>
+                    <li>
+                        <strong>Moduli Single Lab:</strong>
+                        <p class="text-sm text-on-surface-variant">Approccio personalizzato in base al livello e all'interesse del partecipante.</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-span-4 bg-surface-bright border border-secondary p-6 hard-shadow">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-4">palette</span>
+                <h3 class="font-headline text-2xl text-on-surface mb-4">Focus Laboratori</h3>
+                <ul class="space-y-4 text-on-surface-variant">
+                    <li class="flex items-center gap-2"><span class="text-secondary">•</span> Ceramica al tornio e modellazione.</li>
+                    <li class="flex items-center gap-2"><span class="text-secondary">•</span> Botanica, kokedama e terrari.</li>
+                    <li class="flex items-center gap-2"><span class="text-secondary">•</span> Legatoria artigianale e upcycling.</li>
+                    <li class="flex items-center gap-2"><span class="text-secondary">•</span> Restauro soft.</li>
+                </ul>
+            </div>
+            
+            <div class="col-span-4 bg-surface-bright border border-secondary p-6 hard-shadow">
+                <span class="material-symbols-outlined text-tertiary text-4xl mb-4">celebration</span>
+                <h3 class="font-headline text-2xl text-on-surface mb-4">Eventi Speciali</h3>
+                <ul class="space-y-4">
+                    <li>
+                        <strong>Artigianato & Aperitivo:</strong>
+                        <p class="text-sm text-on-surface-variant">Creazione manuale unita a degustazioni biologiche (infrasettimanali).</p>
+                    </li>
+                    <li>
+                        <strong>Family Lab & B2B:</strong>
+                        <p class="text-sm text-on-surface-variant">Moduli dedicati alle famiglie o eventi co-brandizzati con chef e brand locali.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: CONCORRENZA -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Analisi della Concorrenza</h2>
+            <div class="w-24 h-1 bg-secondary mt-4"></div>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-6 flex-1">
+            <div class="col-span-4 flex flex-col gap-4">
+                <h3 class="font-headline text-2xl text-secondary bg-secondary/10 p-3 text-center border border-secondary">Diretti</h3>
+                <div class="bg-surface-bright border border-secondary p-5 flex-1 hard-shadow">
+                    <h4 class="font-bold text-lg mb-2">Atelier Ceramica X</h4>
+                    <p class="text-sm text-secondary mb-1"><strong>+</strong> Alta specializzazione tecnica.</p>
+                    <p class="text-sm text-primary mb-4"><strong>-</strong> Prezzi elevati, orari rigidi, zero hospitality.</p>
+                    
+                    <h4 class="font-bold text-lg mb-2">Laboratorio Creativo Y</h4>
+                    <p class="text-sm text-secondary mb-1"><strong>+</strong> Tariffe popolari, atmosfera informale.</p>
+                    <p class="text-sm text-primary"><strong>-</strong> Attrezzature obsolete, scarsa cura del brand e della location.</p>
+                </div>
+            </div>
+            
+            <div class="col-span-4 flex flex-col gap-4">
+                <h3 class="font-headline text-2xl text-tertiary bg-tertiary/10 p-3 text-center border border-secondary">Potenziali</h3>
+                <div class="bg-surface-bright border border-secondary p-5 flex-1 hard-shadow">
+                    <h4 class="font-bold text-lg mb-2">Concept Store Elite</h4>
+                    <p class="text-sm text-secondary mb-1"><strong>+</strong> Ambientazione elegante, brand alto livello.</p>
+                    <p class="text-sm text-primary"><strong>-</strong> Esperienza puramente passiva (solo acquisto), no coinvolgimento manuale o socializzazione attiva.</p>
+                </div>
+            </div>
+            
+            <div class="col-span-4 flex flex-col gap-4">
+                <h3 class="font-headline text-2xl text-primary bg-primary/10 p-3 text-center border border-secondary">Sostitutivi</h3>
+                <div class="bg-surface-bright border border-secondary p-5 flex-1 hard-shadow">
+                    <h4 class="font-bold text-lg mb-2">Caffetterie Letterarie</h4>
+                    <p class="text-sm text-secondary mb-1"><strong>+</strong> Costi bassi, ambiente rilassante.</p>
+                    <p class="text-sm text-primary mb-4"><strong>-</strong> Assenza di attività pratiche/creative.</p>
+                    
+                    <h4 class="font-bold text-lg mb-2">Grandi Store Arredo</h4>
+                    <p class="text-sm text-secondary mb-1"><strong>+</strong> Prezzi imbattibili, vasta scelta.</p>
+                    <p class="text-sm text-primary"><strong>-</strong> Standardizzati, zero artigianalità e acquisto non emozionale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: SWOT -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Matrice SWOT</h2>
+            <div class="w-24 h-1 bg-secondary mt-4"></div>
+        </header>
+        
+        <div class="grid grid-cols-2 gap-8 flex-1">
+            <div class="bg-secondary-container/30 border border-secondary p-8 hard-shadow flex flex-col justify-center">
+                <h3 class="font-headline text-3xl text-secondary mb-4 flex items-center gap-3"><span class="material-symbols-outlined text-4xl">star</span> Punti di Forza</h3>
+                <ul class="text-lg text-on-surface-variant space-y-3">
+                    <li>• Atmosfera diurna estremamente accogliente (slow living).</li>
+                    <li>• Eccellente qualità dei prodotti retail e attrezzature.</li>
+                    <li>• Diversificazione integrata (Workshop, Retail, Hospitality).</li>
+                </ul>
+            </div>
+            
+            <div class="bg-surface-bright border border-secondary p-8 hard-shadow flex flex-col justify-center">
+                <h3 class="font-headline text-3xl text-on-surface mb-4 flex items-center gap-3"><span class="material-symbols-outlined text-4xl">trending_down</span> Debolezze</h3>
+                <ul class="text-lg text-on-surface-variant space-y-3">
+                    <li>• Rischio di fluttuazione fisiologica dovuta alla stagionalità.</li>
+                    <li>• Capacità massima dei workshop limitata dal numero di postazioni e forni.</li>
+                </ul>
+            </div>
+            
+            <div class="bg-primary/10 border border-primary p-8 hard-shadow-primary flex flex-col justify-center">
+                <h3 class="font-headline text-3xl text-primary mb-4 flex items-center gap-3"><span class="material-symbols-outlined text-4xl">lightbulb</span> Opportunità</h3>
+                <ul class="text-lg text-on-surface-variant space-y-3">
+                    <li>• Aumento della domanda per eventi e manualità offline.</li>
+                    <li>• Crescita del target disposto a investire in sostenibilità premium.</li>
+                </ul>
+            </div>
+            
+            <div class="bg-surface-bright border border-secondary p-8 hard-shadow flex flex-col justify-center">
+                <h3 class="font-headline text-3xl text-on-surface mb-4 flex items-center gap-3"><span class="material-symbols-outlined text-4xl">warning</span> Minacce</h3>
+                <ul class="text-lg text-on-surface-variant space-y-3">
+                    <li>• Ingresso di grandi catene retail con pricing aggressivo.</li>
+                    <li>• Variazioni macroeconomiche sulla spesa destinata al tempo libero.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: PIANO OPERATIVO E CATALOGO -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Operatività & Innovazione</h2>
+            <div class="w-24 h-1 bg-secondary mt-4"></div>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-10 flex-1">
+            <div class="col-span-8 flex flex-col gap-6">
+                <div class="bg-surface-bright border border-secondary p-6 hard-shadow">
+                    <h3 class="font-headline text-2xl text-secondary mb-3">Formazione & Sicurezza</h3>
+                    <p class="text-on-surface-variant mb-4">Programmi sistematici per mantenere standard premium di hospitality. Adeguamento bio-edilizio, perfetta aerazione e sicurezza sui macchinari.</p>
+                </div>
+                
+                <div class="bg-surface-bright border border-secondary p-6 hard-shadow">
+                    <h3 class="font-headline text-2xl text-primary mb-3">Elementi di Innovazione</h3>
+                    <ul class="text-on-surface-variant space-y-2">
+                        <li><strong>Di Processo:</strong> Tracciamento digitale, forni 100% rinnovabili, riciclo scarti.</li>
+                        <li><strong>Di Mercato:</strong> App mobile proprietaria per booking (co-crafting) e programma loyalty.</li>
+                        <li><strong>Layout Spazio:</strong> Palette Warm Analog, ottimizzazione acustica ed ergonomica.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-span-4 h-full">
+                 <div class="w-full h-full bg-surface border border-secondary hard-shadow overflow-hidden relative">
+                    <div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+                    <img src="https://images.unsplash.com/photo-1510936111840-65e151ad71bb?q=80&w=2090&auto=format&fit=crop" class="w-full h-full object-cover grayscale-[30%]" alt="Store Design">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: PIANO STRATEGICO -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Piano Strategico & Ingresso</h2>
+            <div class="w-24 h-1 bg-secondary mt-4"></div>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-8 flex-1">
+            <div class="col-span-6 bg-surface-bright border border-secondary p-8 hard-shadow flex flex-col justify-center">
+                <h3 class="font-headline text-3xl text-secondary mb-6 border-b border-secondary/20 pb-4">Linee Guida di Sviluppo</h3>
+                <ul class="space-y-6">
+                    <li>
+                        <strong class="text-xl">Crescita Community:</strong>
+                        <p class="text-on-surface-variant mt-1">Marketing basato sui valori reali dello slow-living e sull'engagement.</p>
+                    </li>
+                    <li>
+                        <strong class="text-xl">Digitalizzazione:</strong>
+                        <p class="text-on-surface-variant mt-1">Kit fisici a domicilio abbinati a video-corsi on-demand.</p>
+                    </li>
+                    <li>
+                        <strong class="text-xl">Fidelizzazione Premium:</strong>
+                        <p class="text-on-surface-variant mt-1">Abbonamenti per uso libero attrezzature infrasettimanale.</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-span-6 flex flex-col justify-center gap-6">
+                <div class="bg-surface-container border border-secondary p-8 hard-shadow-primary">
+                    <h3 class="font-headline text-3xl text-primary mb-4">Vantaggio Competitivo Netto</h3>
+                    <p class="text-lg text-on-surface-variant">Massima qualità delle materie prime, alto valore didattico e ospitalità impeccabile per attrarre una clientela alto-spendente.</p>
+                </div>
+                
+                <div class="bg-secondary-container/20 border border-secondary p-8 hard-shadow">
+                    <h3 class="font-headline text-2xl text-secondary mb-4">Investimenti di Lancio</h3>
+                    <ul class="text-on-surface-variant space-y-2">
+                        <li>• <strong>Advertising Profilato:</strong> Campagne IG/Pinterest geo-targettizzate.</li>
+                        <li>• <strong>Sistemi Digitali:</strong> Software booking immediato.</li>
+                        <li>• <strong>Presidio Territorio:</strong> Eventi pop-up in hotel e festival design.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: FINANZA E PRICING -->
+    <div class="slide">
+        <header class="mb-10">
+            <h2 class="font-headline text-5xl text-primary">Piano Finanziario & Prezzi</h2>
+            <div class="w-24 h-1 bg-secondary mt-4"></div>
+        </header>
+        
+        <div class="grid grid-cols-12 gap-10 flex-1">
+            <div class="col-span-5 flex flex-col gap-6">
+                <div class="bg-surface-bright border border-secondary p-6 hard-shadow">
+                    <h3 class="font-headline text-2xl text-primary mb-4 border-b border-secondary/20 pb-2">Politica di Prezzo</h3>
+                    <div class="flex justify-between items-end mb-4">
+                        <div>
+                            <h4 class="font-bold text-lg">Workshop Base</h4>
+                            <p class="text-sm text-on-surface-variant">Materiali e specialty coffee inclusi</p>
+                        </div>
+                        <span class="font-headline text-3xl text-secondary">35€<span class="text-lg font-body text-on-surface-variant">/pax</span></span>
+                    </div>
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <h4 class="font-bold text-lg">Consulenze d'Arredo</h4>
+                            <p class="text-sm text-on-surface-variant">In studio o a domicilio</p>
+                        </div>
+                        <span class="font-headline text-3xl text-secondary">25-30€<span class="text-lg font-body text-on-surface-variant">/ora</span></span>
+                    </div>
+                </div>
+                
+                <div class="bg-surface-bright border border-secondary p-6 hard-shadow">
+                    <h3 class="font-headline text-2xl text-secondary mb-4 border-b border-secondary/20 pb-2">Budget Comunicazione</h3>
+                    <table class="w-full">
+                        <tbody class="divide-y divide-secondary/20">
+                            <tr>
+                                <td class="py-3 font-bold text-on-surface">Social Media Manager</td>
+                                <td class="py-3 text-right">2.300€</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 font-bold text-on-surface">Influencer Marketing</td>
+                                <td class="py-3 text-right">1.000€ - 1.500€</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 font-bold text-on-surface">Email Marketing</td>
+                                <td class="py-3 text-right">500€ - 800€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="col-span-7 bg-surface-container border border-secondary p-8 hard-shadow-primary flex flex-col justify-center">
+                <h3 class="font-headline text-4xl text-primary mb-8 border-b border-secondary/30 pb-4">Investimenti Iniziali</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between font-bold text-xl mb-2">
+                            <span>Opere e Bio-edilizia <span class="text-primary">(50%)</span></span>
+                            <span class="text-primary font-headline text-3xl">50.000€</span>
+                        </div>
+                        <div class="w-full bg-white h-3 rounded overflow-hidden border border-secondary/20"><div class="bg-primary h-full w-[50%]"></div></div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between font-bold text-xl mb-2">
+                            <span>Attrezzature Professionali <span class="text-secondary">(40%)</span></span>
+                            <span class="text-secondary font-headline text-3xl">40.000€</span>
+                        </div>
+                        <div class="w-full bg-white h-3 rounded overflow-hidden border border-secondary/20"><div class="bg-secondary h-full w-[40%]"></div></div>
+                        <p class="text-sm text-on-surface-variant mt-2">Forni, torni, licenze sanitarie bar</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-bold text-xl mb-2">
+                            <span>Capitale di Sicurezza <span class="text-tertiary">(10%)</span></span>
+                            <span class="text-tertiary font-headline text-3xl">10.000€</span>
+                        </div>
+                        <div class="w-full bg-white h-3 rounded overflow-hidden border border-secondary/20"><div class="bg-tertiary h-full w-[10%]"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: CONCLUSIONI -->
+    <div class="slide bg-secondary text-white justify-center items-center text-center" style="background-color: #4c6450;">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <span class="material-symbols-outlined text-6xl text-[#ffddb4] mb-8">auto_awesome</span>
+            <h2 class="font-headline text-6xl font-bold text-white leading-tight mb-8">Un'offerta di rottura, capace di unire l'eccellenza del design etico alla qualità del tempo ritrovato.</h2>
+            <p class="text-xl text-[#ceead0] mb-12">
+                Un modello di business integrato per attrarre, emozionare e fidelizzare una community ampia e alto-spendente.
+            </p>
+            
+            <div class="w-full border-t border-[#ceead0]/30 pt-8 mt-8 flex justify-between items-center text-left">
+                <div>
+                    <h3 class="font-headline text-4xl text-[#ffddb4] mb-2">Grazie per l’attenzione</h3>
+                    <p class="text-[#ceead0] font-bold text-lg">Textura S.r.l.</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-[#ceead0]">+39 392 833 5476</p>
+                    <p class="text-[#ceead0]">www.texturastore.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
